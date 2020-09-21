@@ -1,0 +1,115 @@
+DirectoryIndex index.php
+DirectorySlash on
+
+Options +FollowSymLinks
+RewriteEngine On
+
+#���������� ����� � �����
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_URI} !(.*)/$
+#RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+#��������� ������� ����������� ��� �������
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|swf|js|css|svg|ttf|woff|eot|otf)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+#������
+php_flag display_errors on 
+
+SetEnv SERVER_ADMIN abjurest@yandex.com
+AddDefaultCharset utf-8
+AddType 'text/html; charset=UTF-8' .html .htm .shtm
+
+<ifModule mod_headers.c>
+Header set Connection keep-alive
+</ifModule>
+	
+#��������� ������ ��������� ������
+AddOutputFilterByType DEFLATE 	text/html
+AddOutputFilterByType DEFLATE 	text/plain
+AddOutputFilterByType DEFLATE 	text/xml
+AddOutputFilterByType DEFLATE	text/css
+AddOutputFilterByType DEFLATE	text/csv
+AddOutputFilterByType DEFLATE 	application/javascript
+AddOutputFilterByType DEFLATE	application/x-woff
+AddOutputFilterByType DEFLATE	application/xhtml+xml
+AddOutputFilterByType DEFLATE	text/javascript
+AddOutputFilterByType DEFLATE	application/x-font-ttf
+AddOutputFilterByType DEFLATE	application/x-font-otf
+AddOutputFilterByType DEFLATE	application/vnd.ms-fontobject
+
+#������ ��������
+
+#sf
+  RewriteCond %{HTTP:SSL} ^magniflex\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^www\.magniflex\.bget\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^new\.magniflex\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^www\.new\.magniflex\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^magniflex\.bget\.ru$ [NC]
+  
+RewriteRule ^yandex-custom.xml$ yml/yandex.php?custom=1 [L]
+  
+
+#���������
+RewriteCond %{THE_REQUEST} ^.*/index\.php 
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !/index.php$
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z]{1,4}[\?0-9]*/?$ [NC]
+RewriteRule ^(.*)$ /index.php [L]
+RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+
+
+Redirect 301 /catalog/orthopedic_mattresses/zhestkie-mattresses/ /catalog/mattresses/zhestkie-mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/srednie-mattresses/ /catalog/mattresses/srednie-mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/myahkie-mattresses/ /catalog/mattresses/myahkie-mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/reguliruemie-mattresses/ /catalog/mattresses/reguliruemie-mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/MERINOS/ /catalog/mattresses/MERINOS/ 
+Redirect 301 /catalog/orthopedic_mattresses/WATERLATTEX/ /catalog/mattresses/WATERLATTEX/
+Redirect 301 /catalog/orthopedic_mattresses/NEW-NATURCOMFORT/ /catalog/mattresses/NEW-NATURCOMFORT/
+Redirect 301 /catalog/orthopedic_mattresses/MEMO-MERINO/ /catalog/mattresses/MEMO-MERINO/
+Redirect 301 /catalog/bases/Topper-Best-Top/ /catalog/toppers/Topper-Best-Top/
+Redirect 301 /catalog/collectio-Stile/ /catalog/collectio-stile/
+Redirect 301 /catalog/collectio-Pensiero/ /catalog/collectio-pensiero/
+Redirect 301 /catalog/orthopedic_mattresses/ /catalog/mattresses/
+Redirect 301 /catalog/collectio_freshgel/ /catalog/pillows/collectio_freshgel/
+
+Redirect 301 /catalog/pillows/Orthopedic_pillows/ /catalog/pillows/orthopedic_pillows/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_standard_classico/ /catalog/pillows/orthopedic_pillows/memoform_standard_classico/
+Redirect 301 /catalog/Orthopedic_pillows/virtuoso-mallow-standard/ /catalog/pillows/orthopedic_pillows/virtuoso-mallow-standard/
+Redirect 301 /catalog/Orthopedic_pillows/memoform-superiore-deluxe-standard/ /catalog/pillows/orthopedic_pillows/memoform-superiore-deluxe-standard/
+Redirect 301 /catalog/Orthopedic_pillows/memoform-superiore-deluxe-orthomassage/ /catalog/pillows/orthopedic_pillows/memoform-superiore-deluxe-orthomassage/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_superiore_deluxe_wave/ /catalog/pillows/orthopedic_pillows/memoform_superiore_deluxe_wave/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_superiore_comfort/ /catalog/pillows/orthopedic_pillows/memoform_superiore_comfort/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_wave_classico/ /catalog/pillows/orthopedic_pillows/memoform_wave_classico/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_maxi_classico/ /catalog/pillows/orthopedic_pillows/MEMOFORM-MAXI-CLASSICO/
+Redirect 301 /catalog/Orthopedic_pillows/sushi_piccolo/ /catalog/pillows/orthopedic_pillows/SUSHI-PICCOLO/
+Redirect 301 /catalog/gelevye-podushki/FreshGel+Wave/ /catalog/pillows/orthopedic_pillows/FreshGel+Wave/
+Redirect 301 /catalog/gelevye-podushki/Deluxe+Standart/ /catalog/pillows/orthopedic_pillows/MAGNIGEL-DELUXE-STANDARD/
+Redirect 301 /catalog/gelevye-podushki/Memoform-Magnigel-Standard/ /catalog/pillows/orthopedic_pillows/Memoform-Magnigel-Standard/
+Redirect 301 /catalog/vacuum_pillows/RELAXSAN/ /catalog/pillows/vacuum_pillows/RELAXSAN/
+Redirect 301 /catalog/pillows/Collectio_Sushi/ /catalog/pillows/orthopedic_pillows/SUSHI-PICCOLO/
+
+Redirect 301 /catalog/pillows/Оrthopedic_pillows/ /catalog/pillows/оrthopedic_pillows/
+Redirect 301 /catalog/pillows/orthopedic_pillows/ /catalog/pillows/
+
+Redirect 301 /pokupatelyam/skidki-na-otkrytye-matrasy-magniflex/ /skidki-magniflex/sales-open-mattress/
+
+Redirect 301 /catalog/pled/ /catalog/tracks/
+
+
+
+
+
+
+
+
+<Files "comments.txt">
+Deny from all
+</Files>
+

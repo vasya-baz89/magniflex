@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "magniflex-xls-data",
+  "private_key_id": "ae3cb46b8805cc1eb7b782f03cd74a9338ed6af6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCtaqiBEamfzl+j\nGB7xacbcETeC6P5bPH8fnDvVHKBIRUuH8fuqf0cPwHNsgDjc3AyO1lls3eSOj9tG\n5JSnGHzbotuMFihlz2TlzG2pKxBWBiyb/9qNVH48W5bJqf8EbKaoVoeLJhscTXMY\noiFit9MFRv8nDEN7FKxBCYC2Jpmr9wfqKTvuCIkuPcyhZz77PP2vD3oyJH3ca2UG\nudt7YwCEWKp8NyxEG6Sj9d6pJ1LwLFghW7/fprIqk/6Hxw+PivPxn5Oa9hoF9Yoa\nJt/DNNNNSe3ZSIRUjvafg+CgKE6At7X/6sT49bZ7CC3Um86eZ5e5LnBvjwgTYGaZ\nEhPfnPIJAgMBAAECggEABzKbuRSyt8Rs7YPnJ+G6LGDmDw/M29xSUe1uAdHI+Mrw\ngD1b0tcqy8Vy/PxC7+7NsiGFL2qzzXN82E/NODTA3Oxg5Kr4RQaDQ3L1U73K9SkX\nMafgSjipLyflhawBvs0kKy1BPbYojqeLyQhUrqhe0LOiTDx68gk4/4+NiTHns66R\nBKMI5GJSrkKwI027UrbFq1D4lGOxMyjHhTUPKsm1f2pi0t/szddE00Ofj8Ii1krN\n+ygEskxa1E3pdSh7t318TjxOIPcWgz07lPw7QuUTj8cQLDFIZTp3fr5T4UtMy+lx\n9UnyW0x5eA7ppPydhajS64ATNzj+u1JO2bJ70cw9UQKBgQDZYOM6ZF24pyzAIWyW\neDp8oeZOaD50rFsgdSSgBnzsXSvf+LJ+8C4+C57AgMUzvN+g7S1GjYWOHOKYRcEg\nqj1rKhgZ0dLlyxKRqU0eulB25EGXz4wgCuL0ccAWlpGLGAGaTohkVoUKIAE7bhb7\n+7ZunCghydT0BriAlVYSsZqicQKBgQDMOjygksmqdnHFhwnDZeJvKVusMiaKy7eY\nn/mLm8d6DeSYa8E433SLKrD9KJyatRSTKX/uWzHehiip1iC4Xw4A5O3fPOlrp8+6\nt54rOs+W7V4gBDYAXKYR8k1G8x07H/BjaKTFwn1mgjaDi2ADCu/hMSpVEOz2bsnt\nhQbDqXTlGQKBgF28Lb+sL83EKMPgpdZsmavMlGcTBHuDJvhkCxsGMTArLRQzRaT/\nJLGUiSwxWtfohfX60B8wP3r8cal/yruvLTTcve/ETtDQNH2jJ6IsbS4XV0GDOcVH\nbH5D3rTe0HvOKkLDwoSh2lR3YJCj9D1MWWpw481OHwnrK/wmaSs+cpPBAoGAKqrQ\nF8wTDeYJBvebdpNGp2rAmE0x+DVveheSDzTQjBNy+tUoXTVyJ9EXgQyHC1thnQ1C\niQ3McW0d+b2ewGY7irxJZiZXrgI1SBEsnmN/E00sKQw4LAMvPvicZIJOTRfzJRGr\nuxVTFaOGuBzaRkh2rVmUOol6uFGVJmZwb1hr76ECgYA36Yt6CUqhQaPcpLXODQlg\nA1G4fc6V8K2PQ2OO0DynV8Q8PKvhLQHF7YJOM0NmqMG6U6hwenEBNrPHXjqOiTwS\nyibKW+zYgGix7AkjY2bLAf/8Mo+pTbhOCJvzfUwdOkZBKzjrMxwopvDAoplQX8h7\ntadGklneK8tlrcksDUAjew==\n-----END PRIVATE KEY-----\n",
+  "client_email": "magniflex-xls@magniflex-xls-data.iam.gserviceaccount.com",
+  "client_id": "113723802739261004887",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/magniflex-xls%40magniflex-xls-data.iam.gserviceaccount.com"
+}

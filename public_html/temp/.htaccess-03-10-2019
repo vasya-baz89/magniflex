@@ -1,0 +1,280 @@
+DirectoryIndex index.php
+DirectorySlash on
+
+Options +FollowSymLinks
+RewriteEngine On
+
+#���������� ����� � �����
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_URI} !(.*)/$
+#RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+#��������� ������� ����������� ��� �������
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|swf|js|css|svg|ttf|woff|eot|otf)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+#������
+php_flag display_errors on 
+
+SetEnv SERVER_ADMIN abjurest@yandex.com
+AddDefaultCharset utf-8
+AddType 'text/html; charset=UTF-8' .html .htm .shtm
+
+<ifModule mod_headers.c>
+Header set Connection keep-alive
+</ifModule>
+	
+#��������� ������ ��������� ������
+AddOutputFilterByType DEFLATE 	text/html
+AddOutputFilterByType DEFLATE 	text/plain
+AddOutputFilterByType DEFLATE 	text/xml
+AddOutputFilterByType DEFLATE	text/css
+AddOutputFilterByType DEFLATE	text/csv
+AddOutputFilterByType DEFLATE 	application/javascript
+AddOutputFilterByType DEFLATE	application/x-woff
+AddOutputFilterByType DEFLATE	application/xhtml+xml
+AddOutputFilterByType DEFLATE	text/javascript
+AddOutputFilterByType DEFLATE	application/x-font-ttf
+AddOutputFilterByType DEFLATE	application/x-font-otf
+AddOutputFilterByType DEFLATE	application/vnd.ms-fontobject
+
+#������ ��������
+
+#sf
+  RewriteCond %{HTTP:SSL} ^magniflex\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^www\.magniflex\.bget\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^new\.magniflex\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^www\.new\.magniflex\.ru$ [OR]
+  RewriteCond %{HTTP:SSL} ^magniflex\.bget\.ru$ [NC]
+  
+RewriteRule ^yandex-custom.xml$ yml/yandex.php?custom=1 [L]
+  
+  RewriteCond %{REQUEST_URI} ^/company$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/company/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/shop/delivery.php$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/oplata-i-dostavka/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/magniflex-mattresses$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/mattresses/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/merino-mattress-for-children$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/detskie-ortopedicheskie-matrasy/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/new-line$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/new-mattresses/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/magniflex/magniflex-pillows$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/pillows/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/magniflex-pillows/$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/pillows/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/relaxan-pillow$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/vacuum_pillows/RELAXSAN/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/memory-pillow$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/MEMORY/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/orthomassage-pillow$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/ORTHOMASSAGE/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/aloe-vera-pillow$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/ALOE+VERA/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/comfort-pillow$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/COMFORT-PILLOW/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/pokupatelyam/certificates/$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/certificates/ [R=301,L]
+  
+  
+  
+  RewriteCond %{REQUEST_URI} ^/detskie-ortopedicheskie-matrasy$ [OR]
+  RewriteCond %{REQUEST_URI} ^/detskie-matrasy-cheny$ [OR]
+  RewriteCond %{REQUEST_URI} ^/detskie-matrasy-otzyvy$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/detskie-ortopedicheskie-matrasy/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/shop/discount.php$ [OR]
+    RewriteCond %{REQUEST_URI} ^/garantiya-samoi-nizkoi-tceny$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/samaya-vygodnaya-tsena/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/contact$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/internet-magazin-matrasov/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/press-area$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/pressa/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/rules-of-good-sleep$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/oficialnoe-predstavitelstvo-magniflex$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/oficialnoe-predstavitelstvo-magniflex/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/test-ortopedicheskih-matrasov$ [OR]
+    RewriteCond %{REQUEST_URI} ^/kak-v-nashu-zhizh-prishli-matrasy$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/nastoyashchie-ortopedicheskie-matrasy/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/stores$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/adresa-magazinov/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/extend-warranty$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/warranty/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/certificates$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/certificates/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/sizes-and-prices$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/sizes-and-prices/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/brand-history$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/company-history/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/mainBox.html$ [OR]
+  RewriteCond %{REQUEST_URI} ^/forum/viewtopic.php(.*)$ [OR]
+  RewriteCond %{REQUEST_URI} ^/video$ [OR]
+    RewriteCond %{REQUEST_URI} ^/magniflex$ [OR]
+	RewriteCond %{REQUEST_URI} ^/research-center$ [OR]
+   RewriteCond %{REQUEST_URI} ^/ethics$ [OR]
+   RewriteCond %{REQUEST_URI} ^/philosophy$ [OR]
+   RewriteCond %{REQUEST_URI} ^/health$ [OR]
+   RewriteCond %{REQUEST_URI} ^/orthopedists-recommend$ [OR]
+   RewriteCond %{REQUEST_URI} ^/pravilnoe-obraschenie-s-ortopedicheskim-matrasom$ [OR]
+   RewriteCond %{REQUEST_URI} ^/preimuschestva-ortopedicheskih-podstavok$ [OR]
+   RewriteCond %{REQUEST_URI} ^/chehol-dlya-matrasa-syomnyy-ili-nesyomnyy$ [OR]
+   RewriteCond %{REQUEST_URI} ^/chem-vam-smozhet-pomoch-ortopedicheskaya-podushka$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mozhet-li-matras-izbavit-ot-spinnyh-boley$ [OR]
+   RewriteCond %{REQUEST_URI} ^/nemnogo-poleznyh-sovetov-dlya-pokupki-matrasa$ [OR]
+   RewriteCond %{REQUEST_URI} ^/matras-sekret-pruzhyny$ [OR]
+   RewriteCond %{REQUEST_URI} ^/miphy-i-legendy-o-matrasah$ [OR]
+   RewriteCond %{REQUEST_URI} ^/o-veschih-snah$ [OR]
+   RewriteCond %{REQUEST_URI} ^/shop/map.php$ [OR]
+   RewriteCond %{REQUEST_URI} ^/horoshiy-matras-eto-zdorovyy-son$ [NC]
+  RewriteRule 	^(.*)$	/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/dileram$ [OR]
+  RewriteCond %{REQUEST_URI} ^/priglashaem-na-vystavku$ [OR]
+  RewriteCond %{REQUEST_URI} ^/dilery-predstaviteli-magniflex$ [OR]
+   RewriteCond %{REQUEST_URI} ^/povyshenie-price-matrasy$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mebel-2013-vystavka-matrasov$ [OR]
+   RewriteCond %{REQUEST_URI} ^/magniflex-is-50$ [OR]
+   RewriteCond %{REQUEST_URI} ^/magniflex-loves-rugby$ [OR]
+   RewriteCond %{REQUEST_URI} ^/interiors-uk$ [OR]
+   RewriteCond %{REQUEST_URI} ^/canadian-home-furnishing-fair$ [OR]
+   RewriteCond %{REQUEST_URI} ^/podushka-v-podarok$ [OR]
+   RewriteCond %{REQUEST_URI} ^/las-vegas-market$ [OR]
+   RewriteCond %{REQUEST_URI} ^/vystavka-matrasov-magniflex-v-moskve$ [OR]
+   RewriteCond %{REQUEST_URI} ^/furniture-china-2011$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/news/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/faq$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/questions-answers/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/louvre-mattress$ [OR]
+   RewriteCond %{REQUEST_URI} ^/versailles-mattress$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/mattresses/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/matras-kakogo-razmera-vybrat$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/sizes-and-prices/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/kupite-sebe-matras$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/nastoyashchie-ortopedicheskie-matrasy/ [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/fabric-and-treatments$ [OR]
+   RewriteCond %{REQUEST_URI} ^/materials$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/fabric-and-treatments [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/inner-plates$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/inner-plates/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/mission$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/mission/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/why-magniflex$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/why-magniflex/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/about-us$ [OR]
+    RewriteCond %{REQUEST_URI} ^/gallery$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/magniflex-in-the-world/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/loves-nature$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/vacuum-packing/ [R=301,L]
+  
+     RewriteCond %{REQUEST_URI} ^/mattresses-60x120$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-80x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-90x190$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-90x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-120x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-140x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-150x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-160x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-180x200$ [OR]
+   RewriteCond %{REQUEST_URI} ^/mattresses-200x200$ [NC]
+   RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/mattresses/ [R=301,L]
+   
+  
+   RewriteCond %{REQUEST_URI} ^/shop/ob_podushkah.php$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/nastoyashchie-ortopedicheskie-matrasy/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/shops$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/adresa-magazinov/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/show-room-magniflex$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/show-room-matrasov/ [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/presentation/index.swf$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/presentation/index.swf [R=301,L]
+  
+  RewriteCond %{REQUEST_URI} ^/presentation/$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/presentation/index.htm [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/newspaper/house_organ_pdf(.*).pdf$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/pdf/$1 [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/uploads/(.*).pdf$ [NC]
+  RewriteRule 	^([a-z]+)/(.*)$	/sf_redirect.php?new_url=/upload/$2 [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/shop/magniflex_topImg_small2.swf$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/video/magniflex_topImg_small2.swf [R=301,L]
+  
+   RewriteCond %{REQUEST_URI} ^/magniflexTodayPDF.html$ [NC]
+  RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/magniflexTodayPDF.htm [R=301,L]
+  
+  #sf detskie-matrasy redirect
+  RewriteCond %{REQUEST_URI} ^/catalog/detskie-matrasy/$ [NC]
+  RewriteRule 	^(.*)$	/catalog/detskie-ortopedicheskie-matrasy/ [R=301,L]
+  
+  #sf for prod and cat
+  RewriteCond %{REQUEST_URI} ^/shop/index.php(.*)$ [NC]
+  RewriteRule 	^(.*)$ /index.php [R=301,L]
+  
+  #sf redirect shop to index
+  RewriteCond %{REQUEST_URI} ^/shop/$ [NC]
+  RewriteRule 	^(.*)$ / [R=301,L]
+  
+   #sf sitemap
+  RewriteCond %{REQUEST_URI} ^/sitemap/$ [NC]
+  RewriteRule 	^(.*)$ /index.php [L]
+  
+
+#���������
+RewriteCond %{THE_REQUEST} ^.*/index\.php 
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !/index.php$
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z]{1,4}[\?0-9]*/?$ [NC]
+RewriteRule ^(.*)$ /index.php [L]
+RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+
+
+
+
+<Files "comments.txt">
+Deny from all
+</Files>
+

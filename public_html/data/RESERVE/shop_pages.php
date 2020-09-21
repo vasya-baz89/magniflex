@@ -1,0 +1,7 @@
+<php
+
+$shop-pages = array(
+    
+);
+
+?>

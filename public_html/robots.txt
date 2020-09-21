@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: /*search
+Disallow: /*index
+Disallow: /*cart
+Disallow: /*rss
+Disallow: /*?size
+Disallow: /*order
+Disallow: /for_partners.php
+Disallow: /test? 
+Disallow: /compare
+Host: www.magniflex.ru
+Sitemap: https://www.magniflex.ru/sitemap.xml
+  
+User-agent: Googlebot
+User-agent: AdsBot-Google
+User-agent: AdsBot-Google-Mobile
+User-agent: AdsBot-Google-Mobile-Apps
+User-agent: Mediapartners-Google
+User-agent: APIs-Google
+Disallow: /for_partners.php
+Disallow: /*search
+Disallow: /*index
+Disallow: /*cart
+Disallow: /*order
+Sitemap: https://www.magniflex.ru/sitemap.xml

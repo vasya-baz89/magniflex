@@ -1,0 +1,259 @@
+ <?php if(!defined('sf_magniflex'))	{	include_once($_SERVER['DOCUMENT_ROOT'].'/error_403.php');	} ?>
+</div>
+<div class="bottom_wrap">
+	<div class="bottom_wrap_container">
+		<div class="news_footer">
+			<div class="bottom_title">
+				Новости
+			</div>
+			<?php
+				include_once($_SERVER['DOCUMENT_ROOT'].'/data/news.php');
+				
+				$last_news = get_last_news($news, 3);
+				if($last_news && is_array($last_news)){
+				?>
+					<ul class="footer_newslist">
+					<?php
+						foreach($last_news as $el){
+						?>
+							<li itemscope itemtype="http://schema.org/Event">
+								<a href="/news/<?=$el['address'];?>/"><time itemprop="startDate" datetime="<?=text_date_to_iso8601($el['date']);?>"><?=$el['date'];?></time></a><br>
+								<a class="news_span" href="/news/<?=$el['address'];?>/"><span itemprop="name"><?=$el['name'];?></span></a>
+							</li>
+						<?php
+						}
+					?>
+					</ul>
+				<?php
+				}
+			?>
+			<br/>
+			<a href="/news/" title="Все новости Magniflex" class="btn_big">Все новости</a>
+		</div>
+		<div class="about_footer">
+			<div class="bottom_title">
+				Magniflex - это
+			</div>
+			<p class="bottom_text">
+				Magniflex - легендарная марка матрасов.<br>
+				Magniflex - создана в 1962 году.<br>
+				Лидер Европейского рынка матрасов.<br>
+				Самый большой и самый современный завод в Европе.<br>
+				Именно мы изобрели и запатентовали вакуумный матрас и матрас с эффектом памяти.<br>
+				Сделано ИСКЛЮЧИТЕЛЬНО в Италии.<br>
+				География:  5 континентов, 96 стран.<br>
+				35 000 000 человек выбрали Магнифлекс!
+			</p>
+		</div>
+		<!--<div class="sert_footer">
+			<div class="bottom_title">
+				Проверенное качество
+			</div>
+			<a href="/pokupatelyam/certificates/" title="Сертификаты качества Magniflex"><img src="/img/certifications.jpg" alt="Сертификаты Magniflex"></a>
+		</div>
+		-->
+		<div class="social_footer">
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="hnb_newsertbottom">
+		<h3>
+			ПРОВЕРЕННОЕ КАЧЕСТВО — НАШИ СЕРТИФИКАТЫ:
+		</h3>
+		<a href="/pokupatelyam/certificates/" title="Сертификаты качества Magniflex"><img src="/img/certificates3.svg" alt="Сертификаты Magniflex"></a>
+	</div>
+</div>
+<div class="footer_wrap">
+
+			<div class="footer_wrap_container">
+            	<div class="hnb_footcenter">
+				<div class="footer_container_one">
+					<div class="bx_inc_menu_footer">
+						
+						<a href="/o-magniflex/company/">О Magniflex</a><br />
+<a href="/o-magniflex/company/">О компании</a><br />
+<a href="/o-magniflex/mission/">Важно</a><br />
+<a href="/o-magniflex/why-magniflex/">Почему Magniflex</a><br />
+<a href="/o-magniflex/company-history/">История компании</a><br />
+<a href="/o-magniflex/magniflex-in-the-world/">Magniflex во всем мире</a><br />
+<a href="/o-magniflex/stars-magniflex/">Звезды и Магнифлекс</a><br />
+<a href="/o-magniflex/oficialnoe-predstavitelstvo-magniflex/">Единственные в РФ</a><br />
+<a href="/upload/presentation/index.htm" target="_blank">Презентация</a><br />
+					</div>
+					
+				</div>
+				<div class="footer_container_two">
+					<div class="bx_inc_catalog_footer">
+					<a href="/production/nastoyashchie-ortopedicheskie-matrasy/">О продукции</a><br />
+<a href="/production/nastoyashchie-ortopedicheskie-matrasy/">Настоящие ортопедические</a><br />
+<a href="/production/made-in-Italy/">Сделано в Италии</a><br />
+<a href="/production/vacuum-packing/">Вакуумные матрасы</a><br />
+<a href="/production/fabric-and-treatments/">Ткани и технологии</a><br />
+<a href="/production/inner-plates/">Наполнители</a><br />					</div>
+					
+				</div>
+				<div class="footer_container_tre">
+					
+					<div class="informat">
+						<a href="/pokupatelyam/oplata-i-dostavka/">Покупателям</a><br />
+<a href="/pokupatelyam/oplata-i-dostavka/">Оплата и Доставка</a><br />
+<a href="/pokupatelyam/kak-oformit-zakaz/">Как оформить заказ</a><br />
+<a href="/pokupatelyam/warranty/">Гарантия</a><br />
+<a href="/pokupatelyam/obmen-i-vozvrat/">Обмен и Возврат</a><br />
+<a href="/pokupatelyam/certificates/">Сертификаты</a><br />
+<!--<a href="/production/sizes-and-prices/">Размеры и Цены</a><br />-->
+<a href="/pokupatelyam/questions-answers/">Вопросы и Ответы</a><br />
+<a href="/articles/">Статьи</a><br />					</div>
+				</div>
+                
+				<div class="footer_container_for">
+					
+					<div class="deler">
+						<a href="/o-magniflex/adresa-magazinov/">Адреса Магазинов</a><br />
+
+<a href="/o-magniflex/show-room-matrasov/">Шоу-рум</a><br />
+<a href="/o-magniflex/moscow/">Москва</a><br />
+<a href="/o-magniflex/russia/">Россия</a><br />	
+
+				</div>
+				</div>
+				
+				<div class="footer_container_fiv">
+					
+					<div class="int_mag">
+						
+						<a href="/catalog/mattresses/">КАТАЛОГ</a><br />
+						<a href="/catalog/mattresses/">ортопедические матрасы</a><br />
+						<a href="/catalog/elitnye-matrasy/">элитные матрасы</a><br />
+						<a href="/catalog/detskie-ortopedicheskie-matrasy/">детские матрасы</a><br />
+						<a href="/catalog/pillows/">подушки</a><br />
+						
+					</div>
+				</div>
+				<div class="clear"></div>
+				</div>
+                </div>
+<div class="copyright" >
+<div style="max-width:1020px;margin:0 auto;position:relative;">
+<div class="footer_social_icon" style="display:block;max-width: 214px;position: absolute;bottom: -20px;right: -14px;">
+<script src="/template/js/detect.min.js" type="text/javascript"></script>
+<script>
+jQuery(document).ready(function() {
+jQuery(window).load(function() {
+var user = detect.parse(navigator.userAgent);
+if(user.browser.family=='IE'){
+jQuery("#search > form > input[type='search']:nth-child(4)").css({"min-height":"19px", "max-height":"19px"});
+}
+});
+});
+</script>
+<div  id="search">
+<form action="http://www.magniflex.ru/search/" method="get" target="_self">
+<input type="hidden" name="searchid" value="2229739"/>
+<input type="hidden" name="l10n" value="ru"/>
+<input type="hidden" name="reqenc"/>
+<input placeholder="Поиск по сайту"  type="search" name="text"/>
+<input id="button" type="submit" value=""/>
+</form>
+<style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script></div> 
+</div>
+</div>
+</div>
+
+            <div class="hnbcopyright">
+				<div class="hnb_LiveInternet">
+							<!--LiveInternet counter-->
+							<script type="text/javascript"><!--
+							document.write("<a href='http://www.liveinternet.ru/click' "+
+							"target=_blank><img src='//counter.yadro.ru/hit?t14.1;r"+
+							escape(document.referrer)+((typeof(screen)=="undefined")?"":
+							";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+							screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+							";"+Math.random()+
+							"' alt='' title='LiveInternet: показано число просмотров за 24"+
+							" часа, посетителей за 24 часа и за сегодня' "+
+							"border='0' width='88' height='31'><\/a>")
+							//--></script>
+							<!--/LiveInternet-->
+							
+							<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter28675206 = new Ya.Metrika({id:28675206,
+                    webvisor:true,
+                    clickmap:true,
+                    accurateTrackBounce:true,params:window.yaParams||{ }});
+			if(typeof ya_metrika2 != 'undefined') ya_metrika2();
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/28675206" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Start SiteHeart code -->
+<script>
+(function(){
+var widget_id = 726502;
+_shcp =[{widget_id : widget_id}];
+var lang =(navigator.language || navigator.systemLanguage 
+|| navigator.userLanguage ||"en")
+.substr(0,2).toLowerCase();
+var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+var hcc = document.createElement("script");
+hcc.type ="text/javascript";
+hcc.async =true;
+hcc.src =("https:"== document.location.protocol ?"https":"http")
++"://"+ url;
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hcc, s.nextSibling);
+})();
+</script>
+<!-- End SiteHeart code -->
+
+							</div>
+            	<div class="copyright2" itemscope itemtype="http://schema.org/LocalBusiness">Официальный сайт <span itemprop="name">Magniflex</span> в России <?php echo '<p style="display: inline-block;margin: 0;"> - <a class="hnb_site-map" style="color:#fff;" href="/sitemap/">Карта сайта</a></p>';?><!-- -  <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">Центральный Офис: <span itemprop="addressLocality">Москва</span>, <span itemprop="streetAddress">Сумской проезд, д. 8, корп. 3</span></span>; тел: <span itemprop="telephone">+7 (495) 507 22 65</span>. <br />Шоу-рум: Бродников переулок, д.10, к.2; тел: +7 (495) 989 11 32.--> <br /><span itemprop="url">www.magniflex.ru</span> © 2001-2016
+				
+					</div>
+		</div>
+</div>
+</div>
+<div id="loading_page">Загрузка ...</div>
+
+<div class="sf_popup" id="phone_me"></div>
+<div class="sf_popup" id="another_sz"></div>
+<div class="sf_popup" id="wait_sk"></div>
+<div class="sf_popup" id="post_success"></div>
+<div class="sf_popup" id="addcart_success"></div>
+<div class="sf_popup" id="order_success"></div>
+<div class="sf_popup" id="kz_banner"></div>
+
+<div id="sf_overlay" onclick="hide_popup();"></div>
+
+<script src="/template/js/global.js" type="text/javascript"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65895298-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<?include 'callback.php'; ?>
+</body>
+</html>

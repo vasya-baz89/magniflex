@@ -1,0 +1,441 @@
+DirectoryIndex index.php
+DirectorySlash on
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+
+
+#Установка времени кеширования для статики
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|swf|js|css|svg|ttf|woff|eot|otf)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+#Другое
+php_flag display_errors on
+
+SetEnv SERVER_ADMIN abjurest@yandex.com
+AddDefaultCharset utf-8
+AddType 'text/html; charset=UTF-8' .html .htm .shtm
+
+<ifModule mod_headers.c>
+Header set Connection keep-alive
+</ifModule>
+
+
+
+	
+#Включение сжатия текстовых файлов
+AddOutputFilterByType DEFLATE 	text/html
+AddOutputFilterByType DEFLATE 	text/plain
+AddOutputFilterByType DEFLATE 	text/xml
+AddOutputFilterByType DEFLATE	text/css
+AddOutputFilterByType DEFLATE	text/csv
+AddOutputFilterByType DEFLATE 	application/javascript
+AddOutputFilterByType DEFLATE	application/x-woff
+AddOutputFilterByType DEFLATE	application/xhtml+xml
+AddOutputFilterByType DEFLATE	text/javascript
+AddOutputFilterByType DEFLATE	application/x-font-ttf
+AddOutputFilterByType DEFLATE	application/x-font-otf
+AddOutputFilterByType DEFLATE	application/vnd.ms-fontobject
+
+
+#старые редиреты
+RewriteCond %{HTTP_HOST} ^magniflex\.ru$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.magniflex\.bget\.ru$ [OR]
+RewriteCond %{HTTP_HOST} ^new\.magniflex\.ru$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.new\.magniflex\.ru$ [OR]
+RewriteCond %{HTTP_HOST} ^magniflex\.bget\.ru$ [NC]
+RewriteRule ^(.*)$ https://www.magniflex.ru/$1 [R=301,L]
+
+RewriteRule ^yandex-custom.xml$ yml/yandex.php?custom=1 [L]
+
+RewriteCond %{REQUEST_URI} ^/company$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/company/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/shop/delivery.php$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/oplata-i-dostavka/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/magniflex-mattresses$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/mattresses/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/merino-mattress-for-children$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/detskie-ortopedicheskie-matrasy/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/matras-magniflex-merinos-merino$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/orthopedic_mattresses/MERINOS/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/merino-green-tea-mattress$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/orthopedic_mattresses/MERINO-GREEN-TEA/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/merino-bamboo-mattress$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/orthopedic_mattresses/MERINO-BAMBOO/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/waterlatex-mattress$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/orthopedic_mattresses/WATERLATTEX/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/memo-merino-mattress$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/orthopedic_mattresses/MEMO-MERINO/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/new-naturcomfort-mattress$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/orthopedic_mattresses/NEW-NATURCOMFORT/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/new-line$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/new-mattresses/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/magniflex/magniflex-pillows$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/pillows/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/magniflex-pillows/$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/pillows/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/relaxan-pillow$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/vacuum_pillows/RELAXSAN/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/memory-pillow$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/MEMORY/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/orthomassage-pillow$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/ORTHOMASSAGE/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/aloe-vera-pillow$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/ALOE+VERA/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/comfort-pillow$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/Orthopedic_pillows/COMFORT-PILLOW/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/pokupatelyam/certificates/$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/certificates/ [R=301,L]
+
+
+
+RewriteCond %{REQUEST_URI} ^/detskie-ortopedicheskie-matrasy$ [OR]
+RewriteCond %{REQUEST_URI} ^/detskie-matrasy-cheny$ [OR]
+RewriteCond %{REQUEST_URI} ^/detskie-matrasy-otzyvy$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/detskie-ortopedicheskie-matrasy/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/shop/discount.php$ [OR]
+RewriteCond %{REQUEST_URI} ^/garantiya-samoi-nizkoi-tceny$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/samaya-vygodnaya-tsena/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/contact$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/internet-magazin-matrasov/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/press-area$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/pressa/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/rules-of-good-sleep$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/oficialnoe-predstavitelstvo-magniflex$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/oficialnoe-predstavitelstvo-magniflex/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/test-ortopedicheskih-matrasov$ [OR]
+RewriteCond %{REQUEST_URI} ^/kak-v-nashu-zhizh-prishli-matrasy$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/nastoyashchie-ortopedicheskie-matrasy/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/stores$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/adresa-magazinov/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/extend-warranty$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/warranty/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/certificates$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/certificates/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/sizes-and-prices$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/sizes-and-prices/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/brand-history$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/company-history/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/catalog/gelevye-podushki/$ [NC]
+RewriteRule 	^(.*)$	/catalog/pillows/Collectio_freshgel/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/catalog/vacuum_pillows/$ [NC]
+RewriteRule 	^(.*)$	/catalog/pillows/vacuum_pillows/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/catalog/Orthopedic_pillows/$ [NC]
+RewriteRule 	^(.*)$	/catalog/pillows/Orthopedic_pillows/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/mainBox.html$ [OR]
+RewriteCond %{REQUEST_URI} ^/forum/viewtopic.php(.*)$ [OR]
+RewriteCond %{REQUEST_URI} ^/video$ [OR]
+RewriteCond %{REQUEST_URI} ^/magniflex$ [OR]
+RewriteCond %{REQUEST_URI} ^/research-center$ [OR]
+RewriteCond %{REQUEST_URI} ^/ethics$ [OR]
+RewriteCond %{REQUEST_URI} ^/philosophy$ [OR]
+RewriteCond %{REQUEST_URI} ^/health$ [OR]
+RewriteCond %{REQUEST_URI} ^/orthopedists-recommend$ [OR]
+RewriteCond %{REQUEST_URI} ^/pravilnoe-obraschenie-s-ortopedicheskim-matrasom$ [OR]
+RewriteCond %{REQUEST_URI} ^/preimuschestva-ortopedicheskih-podstavok$ [OR]
+RewriteCond %{REQUEST_URI} ^/chehol-dlya-matrasa-syomnyy-ili-nesyomnyy$ [OR]
+RewriteCond %{REQUEST_URI} ^/chem-vam-smozhet-pomoch-ortopedicheskaya-podushka$ [OR]
+RewriteCond %{REQUEST_URI} ^/mozhet-li-matras-izbavit-ot-spinnyh-boley$ [OR]
+RewriteCond %{REQUEST_URI} ^/nemnogo-poleznyh-sovetov-dlya-pokupki-matrasa$ [OR]
+RewriteCond %{REQUEST_URI} ^/matras-sekret-pruzhyny$ [OR]
+RewriteCond %{REQUEST_URI} ^/miphy-i-legendy-o-matrasah$ [OR]
+RewriteCond %{REQUEST_URI} ^/o-veschih-snah$ [OR]
+RewriteCond %{REQUEST_URI} ^/shop/map.php$ [OR]
+RewriteCond %{REQUEST_URI} ^/horoshiy-matras-eto-zdorovyy-son$ [NC]
+RewriteRule 	^(.*)$	/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/dileram$ [OR]
+RewriteCond %{REQUEST_URI} ^/priglashaem-na-vystavku$ [OR]
+RewriteCond %{REQUEST_URI} ^/dilery-predstaviteli-magniflex$ [OR]
+RewriteCond %{REQUEST_URI} ^/povyshenie-price-matrasy$ [OR]
+RewriteCond %{REQUEST_URI} ^/mebel-2013-vystavka-matrasov$ [OR]
+RewriteCond %{REQUEST_URI} ^/magniflex-is-50$ [OR]
+RewriteCond %{REQUEST_URI} ^/magniflex-loves-rugby$ [OR]
+RewriteCond %{REQUEST_URI} ^/interiors-uk$ [OR]
+RewriteCond %{REQUEST_URI} ^/canadian-home-furnishing-fair$ [OR]
+RewriteCond %{REQUEST_URI} ^/podushka-v-podarok$ [OR]
+RewriteCond %{REQUEST_URI} ^/las-vegas-market$ [OR]
+RewriteCond %{REQUEST_URI} ^/vystavka-matrasov-magniflex-v-moskve$ [OR]
+RewriteCond %{REQUEST_URI} ^/furniture-china-2011$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/news/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/faq$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/questions-answers/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/louvre-mattress$ [OR]
+RewriteCond %{REQUEST_URI} ^/versailles-mattress$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/mattresses/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/matras-kakogo-razmera-vybrat$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/pokupatelyam/sizes-and-prices/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/kupite-sebe-matras$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/nastoyashchie-ortopedicheskie-matrasy/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/fabric-and-treatments$ [OR]
+RewriteCond %{REQUEST_URI} ^/materials$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/fabric-and-treatments [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/inner-plates$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/inner-plates/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/mission$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/mission/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/why-magniflex$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/why-magniflex/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/about-us$ [OR]
+RewriteCond %{REQUEST_URI} ^/gallery$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/magniflex-in-the-world/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/loves-nature$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/vacuum-packing/ [R=301,L]
+
+ RewriteCond %{REQUEST_URI} ^/mattresses-60x120$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-80x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-90x190$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-90x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-120x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-140x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-150x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-160x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-180x200$ [OR]
+RewriteCond %{REQUEST_URI} ^/mattresses-200x200$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/catalog/mattresses/ [R=301,L]
+
+
+RewriteCond %{REQUEST_URI} ^/shop/ob_podushkah.php$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/production/nastoyashchie-ortopedicheskie-matrasy/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/shops$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/adresa-magazinov/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/show-room-magniflex$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/o-magniflex/show-room-matrasov/ [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/presentation/index.swf$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/presentation/index.swf [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/presentation/$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/presentation/index.htm [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/newspaper/house_organ_pdf(.*).pdf$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/pdf/$1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/uploads/(.*).pdf$ [NC]
+RewriteRule 	^([a-z]+)/(.*)$	/sf_redirect.php?new_url=/upload/$2 [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/shop/magniflex_topImg_small2.swf$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/video/magniflex_topImg_small2.swf [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/magniflexTodayPDF.html$ [NC]
+RewriteRule 	^(.*)$	/sf_redirect.php?new_url=/upload/magniflexTodayPDF.htm [R=301,L]
+
+#sf detskie-matrasy redirect
+RewriteCond %{REQUEST_URI} ^/catalog/detskie-matrasy/$ [NC]
+RewriteRule 	^(.*)$	/catalog/detskie-ortopedicheskie-matrasy/ [R=301,L]
+
+#sf for prod and cat
+RewriteCond %{REQUEST_URI} ^/shop/index.php(.*)$ [NC]
+RewriteRule 	^(.*)$ /index.php [R=301,L]
+
+#sf redirect shop to index
+RewriteCond %{REQUEST_URI} ^/shop/$ [NC]
+RewriteRule 	^(.*)$ / [R=301,L]
+
+#sf sitemap
+RewriteCond %{REQUEST_URI} ^/sitemap/$ [NC]
+RewriteRule 	^(.*)$ /index.php [L]
+
+RewriteCond		%{REQUEST_URI} ^/catalog/$ [NC]
+RewriteRule		^(.*)$	/catalog/mattresses/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^.*/index\.php
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+#более новые как я вижу 
+Redirect 301 /catalog/tracks/ /catalog/pled/
+Redirect 301 /catalog/orthopedic_mattresses/zhestkie-mattresses/ /catalog/mattresses/zhestkie-mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/srednie-mattresses/ /catalog/mattresses/srednie-mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/myahkie-mattresses/ /catalog/mattresses/soft_mattresses/
+Redirect 301 /catalog/mattresses/myahkie-mattresses/ /catalog/mattresses/soft_mattresses/
+Redirect 301 /catalog/orthopedic_mattresses/reguliruemie-mattresses/ /catalog/mattresses/dual-reguliruemie-mattresses/ 
+Redirect 301 /catalog/mattresses/reguliruemie-mattresses/ /catalog/mattresses/dual-reguliruemie-mattresses/
+Redirect 301 /news/Salone-del-Mobile-Milano-Moscow-2019/ /news/salone_del_mobile_2019/
+Redirect 301 /catalog/detskie-ortopedicheskie-matrasy/Stile-7-childrens/ /catalog/collectio-stile/stile-7/
+Redirect 301 /catalog/pillows/Collectio_classico/ /catalog/pillows/collectio_classico/
+Redirect 301 /tovary-dlya-detej/43-b-bamboo-sfoderabile.html /catalog/detskie-ortopedicheskie-matrasy/b-bamboo-sfoderabile/
+Redirect 301 /catalog/detskie-ortopedicheskie-matrasy/B-Bamboo-Sfoderabile/ /catalog/detskie-ortopedicheskie-matrasy/b-bamboo-sfoderabile/
+Redirect 301 /manufacturers/ /o-magniflex/company/
+Redirect 301 /34-harmony/ /catalog/elitnye-harmony/
+Redirect 301 /content/10-magniflex-price-list/ /production/sizes-and-prices/
+Redirect 301 /podushki/100-podushka-memoform-superiore-comfort-mx-magniflex.html /catalog/pillows/memoform_superiore_comfort/
+Redirect 301 /podushki/97-podushka-memoform-superiore-deluxe-standard-mx-magniflex.html /catalog/pillows/memoform-superiore-deluxe-standard/
+Redirect 301 /52-srednej-myagkosti/ /catalog/mattresses/srednie-mattresses/
+Redirect 301 /16-aksessuary-dlya-matrasov-i-podushek/ /catalog/mattresses/
+Redirect 301 /osnovaniya-dlya-matrasov/17-komfort-osnovanie-dlya-matrasa.html /catalog/ortopedicheskie-reshetky/ortopedicheskoe-osnovanie-komfort/
+Redirect 301 /podushki/96-podushka-virtuoso-mallow-standard-mx-magniflex.html /catalog/pillows/virtuoso-mallow-standard/
+Redirect 301 /podushki/95-podushka-memoform-wave-classico-mx-magniflex.html  /catalog/pillows/memoform_wave_classico/
+Redirect 301 /content/102-salon-mitos-v-moskve/ /o-magniflex/moscow/
+Redirect 301 /54-dual/ /catalog/mattresses/dual-reguliruemie-mattresses/
+Redirect 301 /12-elitnye-matrasy/ /catalog/elitnye-matrasy/
+Redirect 301 /content/33-diron-ekaterinburg/ /o-magniflex/russia-ekaterinburg/
+Redirect 301 /magniflex/extend-warranty/ /pokupatelyam/warranty/
+Redirect 301 /catalog/collectio-pensiero/Pensiero-12/ /catalog/collectio-pensiero/pensiero-12/
+Redirect 301 /o-magniflex/moscow/predstavleniya-kolekcii/ /o-magniflex/moscow/
+Redirect 301 /catalog/collectio-Memorie/Memorie-8/ /catalog/collectio-memorie/memorie-8/
+Redirect 301 /catalog/collectio-pensiero/Pensiero-6/ /catalog/collectio-pensiero/pensiero-6/
+Redirect 301 /catalog/collectio-stile/Stile-8/ /catalog/collectio-stile/stile-8/
+Redirect 301 /catalog/pillows/Collectio_relaxsan/ /catalog/pillows/collectio_relaxsan/
+Redirect 301 /catalog/tracks/pled-lara-bianco/ /catalog/tracks/lara-1/
+Redirect 301 /catalog/tracks/LARA-1/ /catalog/tracks/lara-1/
+Redirect 301 /catalog/tracks/LARA-Bordeaux/ /catalog/tracks/lara-bordeaux/
+Redirect 301 /catalog/tracks/LARA-Rosso/ /catalog/tracks/lara-rosso/
+Redirect 301 /catalog/tracks/SORRENTO-1/ /catalog/tracks/sorrento-1/
+Redirect 301 /catalog/tracks/SORRENTO-2/ /catalog/tracks/sorrento-2/
+Redirect 301 /catalog/tracks/SORRENTO-3/ /catalog/tracks/sorrento-3/
+Redirect 301 /catalog/tracks/LUCCA-1/ /catalog/tracks/lucca-1/
+Redirect 301 /catalog/tracks/LUCCA-3/ /catalog/tracks/lucca-3/
+Redirect 301 /catalog/tracks/ASMANA-400-3/ /catalog/tracks/asmana-400-3/
+Redirect 301 /catalog/tracks/NITRA-70-Navy/ /catalog/tracks/nitra-70-navy/
+Redirect 301 /catalog/tracks/NITRA-RESCA-7/ /catalog/tracks/nitra-resca-7/
+Redirect 301 /catalog/tracks/NITRA-CHARME-3/ /catalog/tracks/nitra-charme-3/
+Redirect 301 /catalog/collectio-stile/Stile-6/ /catalog/collectio-stile/stile-6/
+Redirect 301 /catalog/collectio-Stile/Stile-7/ /catalog/collectio-stile/stile-7/
+Redirect 301 /catalog/collectio-Memorie/Memorie-9/ /catalog/collectio-memorie/memorie-9/
+Redirect 301 /catalog/elitnye-FreshGel/NEW-FreshGel-12/ /catalog/elitnye-freshgel/new-freshgel-12/
+Redirect 301 /catalog/elitnye-FreshGel/ /catalog/elitnye-freshgel/
+Redirect 301 /catalog/elitnye-Stretching/ /catalog/elitnye-stretching/
+Redirect 301 /catalog/elitnye-Stretching/Stretching-9/ /catalog/elitnye-stretching/stretching-9/
+Redirect 301 /catalog/collectio-Memorie/ /catalog/collectio-memorie/
+Redirect 301 /catalog/pled/BABILONA-AMANDA/ /catalog/tracks/babilona-amanda-grey/
+Redirect 301 /catalog/pled/BABILONA-GREY-RED/ /catalog/tracks/babilona-grey/red/
+Redirect 301 /catalog/pled/BABILONA-CHECK/ /catalog/tracks/babilona-check-305-2/
+Redirect 301 /catalog/collectio-pensiero/Pensiero-7/ /catalog/collectio-pensiero/pensiero-7/
+Redirect 301 /catalog/collectio-pensiero/Pensiero-6/ /catalog/collectio-pensiero/pensiero-6/
+Redirect 301 /catalog/elitnye-rest/Rest-9/ /catalog/elitnye-rest/rest-9/
+Redirect 301 /catalog/elitnye-rest/Rest-10/ /catalog/elitnye-rest/rest-10/
+Redirect 301 /catalog/elitnye-rest/Rest-12/ /catalog/elitnye-rest/rest-12/
+Redirect 301 /catalog/orthopedic_mattresses/MERINOS/ /catalog/mattresses/merinos/ 
+Redirect 301 /catalog/mattresses/MERINOS/ /catalog/mattresses/merinos/
+Redirect 301 /catalog/orthopedic_mattresses/NEW-NATURCOMFORT/ /catalog/mattresses/new-naturcomfort/
+Redirect 301 /catalog/mattresses/NEW-NATURCOMFORT/ /catalog/mattresses/new-naturcomfort/
+Redirect 301 /catalog/orthopedic_mattresses/MEMO-MERINO/ /catalog/mattresses/memo-merino/
+Redirect 301 /catalog/mattresses/MEMO-MERINO/ /catalog/mattresses/memo-merino/
+Redirect 301 /catalog/orthopedic_mattresses/WATERLATTEX/ /catalog/mattresses/waterlattex/
+Redirect 301 /catalog/mattresses/WATERLATTEX/ /catalog/mattresses/waterlattex/
+Redirect 301 /catalog/mattresses/snyatie-s-proizvodstva/ /catalog/snyatie-s-proizvodstva/
+Redirect 301 /catalog/bases/Topper-Best-Top/ /catalog/toppers/topper-best-top/
+Redirect 301 /catalog/toppers/Topper-Best-Top/ /catalog/toppers/topper-best-top/
+Redirect 301 /catalog/collectio-Stile/ /catalog/collectio-stile/
+Redirect 301 /catalog/collectio-Pensiero/ /catalog/collectio-pensiero/
+Redirect 301 /catalog/orthopedic_mattresses/ /catalog/mattresses/
+Redirect 301 /catalog/pillows/Collectio_freshgel/ /catalog/pillows/collectio_freshgel/
+Redirect 301 /catalog/pillows/Collectio_superiore/ /catalog/pillows/collectio_superiore/
+Redirect 301 /catalog/pillows/Orthopedic_pillows/ /catalog/pillows/orthopedic_pillows/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_standard_classico/ /catalog/pillows/orthopedic_pillows/memoform_standard_classico/
+Redirect 301 /catalog/Orthopedic_pillows/virtuoso-mallow-standard/ /catalog/pillows/orthopedic_pillows/virtuoso-mallow-standard/
+Redirect 301 /catalog/Orthopedic_pillows/memoform-superiore-deluxe-standard/ /catalog/pillows/orthopedic_pillows/memoform-superiore-deluxe-standard/
+Redirect 301 /catalog/Orthopedic_pillows/memoform-superiore-deluxe-orthomassage/ /catalog/pillows/orthopedic_pillows/memoform-superiore-deluxe-orthomassage/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_superiore_deluxe_wave/ /catalog/pillows/orthopedic_pillows/memoform_superiore_deluxe_wave/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_superiore_comfort/ /catalog/pillows/orthopedic_pillows/memoform_superiore_comfort/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_wave_classico/ /catalog/pillows/orthopedic_pillows/memoform_wave_classico/
+Redirect 301 /catalog/Orthopedic_pillows/memoform_maxi_classico/ /catalog/pillows/orthopedic_pillows/memoform_maxi_classico/
+Redirect 301 /catalog/Orthopedic_pillows/sushi_piccolo/ /catalog/pillows/orthopedic_pillows/sushi-piccolo/
+Redirect 301 /catalog/gelevye-podushki/FreshGel+Wave/ /catalog/pillows/freshgel_wave/
+Redirect 301 /catalog/pillows/orthopedic_pillows/FreshGel+Wave/ /catalog/pillows/freshgel_wave/
+Redirect 301 /catalog/gelevye-podushki/Deluxe+Standart/ /catalog/pillows/orthopedic_pillows/magnigel-deluxe-standard/
+Redirect 301 /catalog/pillows/MAGNIGEL-DELUXE-STANDARD/ /catalog/pillows/magnigel-deluxe-standard/
+Redirect 301 /catalog/gelevye-podushki/Memoform-Magnigel-Standard/ /catalog/pillows/orthopedic_pillows/memoform-magnigel-standard/
+Redirect 301 /catalog/pillows/Memoform-Magnigel-Standard/ /catalog/pillows/memoform-magnigel-standard/
+Redirect 301 /catalog/vacuum_pillows/RELAXSAN/ /catalog/pillows/vacuum_pillows/RELAXSAN/
+Redirect 301 /catalog/pillows/Collectio_Sushi/ /catalog/pillows/orthopedic_pillows/sushi-piccolo/
+Redirect 301 /catalog/pillows/SUSHI-PICCOLO/ /catalog/pillows/sushi-piccolo/
+Redirect 301 /pokupatelyam/oplata-i-dostavka/ /pokupatelyam/dostavka/
+Redirect 301 /catalog/pillows/Оrthopedic_pillows/ /catalog/pillows/оrthopedic_pillows/
+Redirect 301 /catalog/pillows/orthopedic_pillows/ /catalog/pillows/
+Redirect 301 /pokupatelyam/skidki-na-otkrytye-matrasy-magniflex/ /skidki-magniflex/sales-open-mattress/
+Redirect 301 /catalog/pled/ /catalog/tracks/
+Redirect 301 /catalog/elitnye-FreshGel/FreshGel-9/ /catalog/elitnye-freshgel/freshgel-9/
+Redirect 301 /catalog/elitnye-FreshGel/FreshGel-10/ /catalog/elitnye-freshgel/freshgel-10/
+Redirect 301 /catalog/elitnye-freshgel/NEW-FreshGel-10/ /catalog/elitnye-freshgel/freshgel-10/
+Redirect 301 /catalog/elitnye-freshgel/FreshGel-12/ /catalog/elitnye-freshgel/new-freshgel-12/
+Redirect 301 /catalog/elitnye-carezza/Carezza-10/ /catalog/elitnye-carezza/carezza-10/
+Redirect 301 /catalog/elitnye-comfort-delux/Comfort-Plus-10/ /catalog/elitnye-comfort-delux/comfort-plus-10/
+Redirect 301 /catalog/elitnye-comfort-delux/Comfort-Plus-12/ /catalog/elitnye-comfort-delux/comfort-plus-12/
+Redirect 301 /catalog/elitnye-stretching/Stretching-9/ /catalog/elitnye-stretching/stretching-9/
+Redirect 301 /catalog/elitnye-Stretching/Stretching-10/ /catalog/elitnye-stretching/stretching-10/
+Redirect 301 /catalog/elitnye-Stretching/stretching-10/ /catalog/elitnye-stretching/stretching-10/
+Redirect 301 /catalog/elitnye-harmony/Exchange-Memoform-Dual/ /catalog/elitnye-harmony/exchange-memoform-dual/
+Redirect 301 /catalog/elitnye-magnificent/Magnificent-12/ /catalog/elitnye-magnificent/magnificent-12/
+Redirect 301 /catalog/elitnye-virtus/Virtus-30/ /catalog/elitnye-virtus/virtus-30/
+Redirect 301 /catalog/detskie-ortopedicheskie-matrasy/MERINO-childrens/ /catalog/detskie-ortopedicheskie-matrasy/merino-childrens/
+Redirect 301 /catalog/detskie-ortopedicheskie-matrasy/Stile-6-childrens/ /catalog/detskie-ortopedicheskie-matrasy/stile-6-childrens/
+Redirect 301 /catalog/detskie-ortopedicheskie-matrasy/B-Bamboo/ /catalog/detskie-ortopedicheskie-matrasy/b-bamboo/
+Redirect 301 /catalog/detskie-ortopedicheskie-matrasy/Pensiero-6-childrens/ /catalog/detskie-ortopedicheskie-matrasy/pensiero-6-childrens/
+Redirect 301 /catalog/pillows/vacuum_pillows/RELAXSAN/ /catalog/pillows/vacuum_pillows/relaxsan/
+Redirect 301 /catalog/tracks/BABILONA-Grey/Red/ /catalog/tracks/babilona-grey/red/
+Redirect 301 /catalog/tracks/BABILONA-CHECK-305-2/ /catalog/tracks/babilona-check-305-2/
+Redirect 301 /elitnye-matrasy/magnificient/ /catalog/elitnye-magnificent/
+Redirect 301 /elitnye-matrasy/comfort-delux/ /catalog/elitnye-comfort-delux/
+Redirect 301 /elitnye-matrasy/freshgel/ /catalog/elitnye-freshgel/
+Redirect 301 /elitnye-matrasy/rest/ /catalog/elitnye-rest/
+Redirect 301 /elitnye-matrasy/virtus/ /catalog/elitnye-virtus/
+Redirect 301 /elitnye-matrasy/harmony/ /catalog/elitnye-harmony/
+Redirect 301 /o-magniflex/russia/pozvonochnik-info/ /elitnye-matrasy/imperiale/
+
+#редиректы
+RewriteCond %{THE_REQUEST} ^.*/index\.php
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !/index.php$
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z]{1,4}[\?0-9]*/?$ [NC]
+RewriteRule ^(.*)$ /index.php [L]
+RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+<Files "comments.txt">
+Deny from all
+</Files>
+

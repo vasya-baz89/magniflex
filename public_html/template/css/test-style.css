@@ -1,0 +1,218 @@
+.newblockBuff{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-top: 4px;
+}
+.Buff-left{
+    width: 25%;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    -webkit-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+-moz-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+
+}
+.Buff-right-main{
+    width: 75%;
+    position: relative;
+    padding: 0px 4px 0 4px;
+    box-sizing: border-box;
+}
+.Buff-bottom,.Buff-right{
+    width: 100%;
+    display: flex;
+    padding: 0px 4px 0 4px;
+    box-sizing: border-box;
+}
+.Buff-bottom{
+    padding-top: 8px;
+}
+
+.newblockBuff-left{
+    background: url('/img/main/buffon_magniflex.jpg');
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    transition: all .5s;
+}
+.Buff-left:hover .newblockBuff-left{
+    transform: scale(1.2);
+    transition: all .5s;
+}
+.newblockBuff-center:hover,.newblockBuff-center-right:hover,.newblockBuff-center-bottom:hover,.newblockBuff-center-bottomRight:hover{
+    background-size: 120%;
+    transition: all .5s;
+}
+.newblockBuff-center{
+    background: url('/img/main/martin_magni.jpg');
+    height: 337px;
+    background-position: center center;
+    background-size: 100%;
+    height: 337px;
+position: relative;
+    flex-grow: 1;
+    margin-right: 8px;
+    transition: all .5s;
+    -webkit-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+-moz-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+}
+.newblockBuff-center-right{
+    background: url('/img/main/magni_02.jpg');
+    height: 337px;
+    background-position: center center;
+    background-size: 100%;
+    position: relative;
+    flex-grow: 2;
+    transition: all .5s;
+    -webkit-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+    -moz-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+    box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+}
+.newblockBuff-center-bottom{
+    background: url('/img/main/magni_04.jpg');
+    height: 337px;
+    background-position: center center;
+    background-size: 100%;
+    height: 337px;
+    position: relative;
+    flex-grow: 2;
+    margin-right: 8px;
+    transition: all .5s;
+    -webkit-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+    -moz-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+    box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+}
+.newblockBuff-center-bottomRight{
+    background: url('/img/main/magni_03.jpg');
+    height: 337px;
+    background-position: center center;
+    background-size: 100%;
+    height: 337px;
+    position: relative;
+    flex-grow: 1;
+    transition: all .5s;
+    -webkit-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+    -moz-box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+    box-shadow: inset 0px 49px 24px 0px rgba(0,0,0,0.58);
+}
+.Buff-info{
+    max-width: 91%;
+    position: absolute;
+    margin: 0 auto;
+    right: 1px;
+    left: 1px;
+    top: unset;
+    padding-top: 20px;
+    color: white;
+}
+.Buff-info a{
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+}
+.Buff-info a p{
+    text-transform: uppercase;
+}
+.Buff-link{
+position: absolute;
+top: 25px;
+left: 25px;
+color: #fff;
+text-decoration: none;
+}
+.Buff-link-last{
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 101px);
+    /* right: 202px; */
+    color: #fff;
+    text-decoration: none;
+}
+.Buff-img-abs{
+    max-width: 54px;
+    width: 100%;
+}
+.Buff-link p{
+    font-size: 30px;
+    margin: 0;
+}
+.Buff-title{
+    font-size: 30px;
+    font-weight: normal;
+}
+.Buff-subtitle{
+    font-size: 14px;
+    margin-top: 0;
+}
+.Buff-button{
+    text-transform: uppercase;
+    border: 3px solid white;
+    max-width: 90%;
+    text-align: center;
+    margin: 35px auto 0 auto;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px 55px;
+    display: none;
+    text-decoration: none;
+}
+.Buff-button:hover{
+    color: #1e4f67;
+    border: 3px solid white;
+    background-color: white;
+
+}
+.Buff-left:hover .Buff-button,.newblockBuff-center:hover .Buff-button, .newblockBuff-center-right:hover .Buff-button, .newblockBuff-center-bottom:hover .Buff-button,.newblockBuff-center-bottomRight:hover .Buff-button{
+    display: inline-block;
+}
+.abs-butt{
+    position: absolute;
+    top: 50px;
+    left: 25px;
+}
+
+@media(max-width:980px){
+    .Buff-right-main,.Buff-left{
+        width: 100%;
+    }
+    .Buff-left{
+        height: 337px;
+        margin-bottom: 8px;
+    }
+    .Buff-bottom, .Buff-right,.Buff-right-main{
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .newblockBuff-center-right,.newblockBuff-center-bottom{
+        flex-grow: 1;
+    }
+}
+@media(max-width:645px){
+    .Buff-bottom, .Buff-right{
+        flex-wrap: wrap;
+        padding-top: 0;
+    }
+    .newblockBuff-center-bottom,.newblockBuff-center-bottomRight,.newblockBuff-center,.newblockBuff-center-right{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0px;
+    }
+    .Buff-left{
+        margin-bottom: 0;
+    }
+    .Buff-button{
+        display: inline-block;
+    }
+  
+}
+@media(max-width:390px){
+    .abs-butt{
+        top: 100px;
+    }
+}
+

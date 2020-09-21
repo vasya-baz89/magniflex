@@ -1,0 +1,39 @@
+array(
+			'address' => 'search',
+			'parent_address' => '',
+			'parent_name' => '',
+			'name' => 'Поиск',
+			'left_sidebar' => '',
+			'title' => 'Поиск',
+			'description' => '',
+			'keywords' => '',
+			'text' => "
+<div id=\"ya-site-results\" onclick=\"return {'tld': 'ru','language': 'ru','encoding': '','htmlcss': '1.x','updatehash': true}\"></div><script type=\"text/javascript\">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0];s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Results.init();})})(window,document,'yandex_site_callbacks');</script>
+"
+		),
+		
+<!--------------------------------->
+<!--------------------------------->
+		#button{
+border: 0;
+width: 24px;
+height: 24px;
+margin-left: 5px;
+background: transparent url('/img/magnify.png') left center no-repeat;
+background-color: #837567!important;
+}
+#search{
+background-color: #837567!important;
+}
+</style>
+			<div class="copyright" ><div class="footer_social_icon" style="max-width: 214px;position: absolute;bottom: 47px;right: 173px;">
+			<div id="search" style="height: 25.5px;width: 175px;padding-left: 10px;background-color: #837567!important;padding-top: 1px;">
+<form action="https://www.magniflex.ru/search/" method="get" target="_self">
+<input type="hidden" name="searchid" value="2229739"/>
+<input type="hidden" name="l10n" value="ru"/>
+<input type="hidden" name="reqenc"/>
+<input placeholder="Search"  type="search" name="text"/>
+<input id="button" type="submit" value=""/>
+</form>
+<style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script></div>
+</div></div>

@@ -1,0 +1,57 @@
+.new-main-sliderok{
+    max-width: 1480px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.new-main-sliderok .category_product.mattresses-height{
+    display: inline-block;
+    pointer-events: none;
+}
+.new-main-sliderok .slick-next{
+    right: 10px!important;
+}
+.new-main-sliderok .slick-prev{
+    left: 20px!important;
+    z-index: 10;
+}
+.new-main-sliderok .slick-next:before,.new-main-sliderok .slick-prev:before{
+    width: 15px;
+    height: 15px;
+}
+.new-main-sliderok .category_product_quantity{
+    display: none;
+}
+
+.new-main-sliderok .category_product:hover .ama_product_block{
+    margin: 0!important;
+}
+
+.new-main-sliderok .category_product_buy{
+    display: none!important;
+}
+.new-main-sliderok .name-new{
+    text-align: center;
+}
+.new-main-sliderok .button--blue {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: white;
+    width: 270px;
+    border: 3px solid #144760;
+    background-color: #144760;
+    display: block;
+    text-align: center;
+    padding: 19px 0;
+    border-radius: 5px;
+    margin-left: 0;
+}
+.new-main-sliderok .newblue{
+    margin: 0 auto;
+}
+.new-main-sliderok .category_product.pillows-height {
+    height: 630px;
+    display: inline-block!important;
+    pointer-events: none;
+}
